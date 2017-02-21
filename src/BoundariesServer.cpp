@@ -37,10 +37,6 @@ CBoundariesServer::~CBoundariesServer()
 		delete []m_iaBBoxRepartition;
 	}
 
-	if (m_llaBBoxOffsets != NULL) {
-		delete []m_llaBBoxOffsets;
-	}
-
 	//cleanup the map
 	map<int, CBoundariesList*>::iterator iter;
 	for (iter = m_vBBoxBoundaries.begin(); iter != m_vBBoxBoundaries.end(); iter++) {
@@ -49,23 +45,10 @@ CBoundariesServer::~CBoundariesServer()
 		(*iter).second = NULL;
 	}
 	m_vBBoxBoundaries.clear();
-}
-
-/**
- *	Get number of ways
- *	@return number of ways
- **/
-int
-CBoundariesServer::getBoundariesNo()
-{
-	int res = 0;
-
-	map<int, CBoundariesList*>::iterator iter;
-	for (iter = m_vBBoxBoundaries.begin(); iter != m_vBBoxBoundaries.end(); iter++) {
-		res += (*iter).second->getBoundariesNo();
+	
+		if (m_llaBBoxOffsets != NULL) {
+		delete []m_llaBBoxOffsets;
 	}
-
-	return res;
 }
 
 /**
