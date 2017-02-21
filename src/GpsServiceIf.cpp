@@ -24,3 +24,5 @@ GpsServiceIf::~GpsServiceIf()
 {
 }
 
+/* New comment in code file */
+
