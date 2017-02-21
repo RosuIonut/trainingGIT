@@ -18,17 +18,21 @@ MapController::MapController(QObject *parent /*= 0*/, MapDraw &map)
 	connect(this, SIGNAL(imageSlide(int, int)), &m_map, SLOT(onImageSlide(int, int)));
 }
 
+
 MapController::~MapController()
 {
+	
 	while (!m_overlays.isEmpty())
 		removeOverlay(m_overlays.first());
 
 	disconnect(this, SIGNAL(positionChanged(DT_MapCoordinate, DT_MapCoordinate)), &m_map, SLOT(onPositionChanged(DT_MapCoordinate, DT_MapCoordinate)));
 	disconnect(this, SIGNAL(imageSlide(int, int)), &m_map, SLOT(onImageSlide(int, int)));
+	
 }
 
 void MapController::addOverlay(QObject *overlay)
 {
+	
 	if (overlay == 0)
 		return;
 	if (m_overlays.contains(overlay))
@@ -43,6 +47,7 @@ void MapController::addOverlay(QObject *overlay)
 	m_map.initialize();
 
 	m_overlays.append(overlay);
+	
 }
 
 void MapController::removeOverlay(QObject *overlay)
