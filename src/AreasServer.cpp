@@ -343,3 +343,8 @@ CAreasServer::openFile(const char *fileName)
 
 	return 0;
 }
+
+
+
+
+Test Commit asdjkhjdf!!
