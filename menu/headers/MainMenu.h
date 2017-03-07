@@ -26,6 +26,7 @@ signals:
 	void AddressClicked();
 	void MapClicked();
 	void SettingsClicked();
+	void Levi();
 
 private:
 
