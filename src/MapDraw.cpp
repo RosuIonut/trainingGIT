@@ -1,6 +1,6 @@
 #include "MapDraw.h"
 #include "TileServer.h"
-
+//merge?
 //#define _DEBUG_MAP_DRAW_
 
 MapDraw::MapDraw(QWidget* parent, int width, int height) :
