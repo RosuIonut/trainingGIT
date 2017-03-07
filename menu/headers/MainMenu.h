@@ -22,6 +22,7 @@ public:
 
 signals:
 	void PoiClicked();
+	void PoiReleased();
 	void AddressClicked();
 	void MapClicked();
 	void SettingsClicked();
