@@ -25,6 +25,9 @@ public:
 
 signals:
 	void MenuClicked();
+	void MenuReleased();
+	void MenuClosed();
+	void MenuOpened();
 
 private:
     QPushButton *menu;
