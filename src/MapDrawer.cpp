@@ -3,6 +3,10 @@
 #include "MapSettings.h" // holds NO_ZOOM_LEVELS
 #include "DrawStyle.h"
 
+/*
+* this file dont have head comment
+*/
+
 //////////////////////////////////////////////////////////////////////////////////////
 MapDrawer::MapDrawer() : m_tileServer(NULL)
 {
