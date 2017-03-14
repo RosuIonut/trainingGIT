@@ -16,10 +16,9 @@ private:
 	//the map iterator
 	multimap<int, DT_OSMAreaBBox*>::iterator m_MapIterator;
 public:
-	CAreasList();
 	~CAreasList();
-	/*comment*/
-	int getAreasNo();
+
+	int gyyAreasNo();
 	int addArea(DT_OSMAreaBBox* area);
 	int countAreas(unsigned int iAreaId);
 	DT_OSMAreaBBox* getArea(unsigned int iAreaId, unsigned int AreaNo);
