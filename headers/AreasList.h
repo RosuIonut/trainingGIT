@@ -18,7 +18,7 @@ private:
 public:
 	CAreasList();
 	~CAreasList();
-
+	/*comment*/
 	int getAreasNo();
 	int addArea(DT_OSMAreaBBox* area);
 	int countAreas(unsigned int iAreaId);
