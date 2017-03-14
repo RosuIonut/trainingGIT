@@ -2,11 +2,11 @@
 #define AREASLIST_H_
 
 #include <map>
-
+/* this file need more comments*/
 extern "C" {
 #include "DataStructures.h"
 }
-
+//true
 using namespace std;
 
 class CAreasList {
@@ -25,7 +25,7 @@ public:
 	DT_OSMAreaBBox* getArea(unsigned int iAreaId, unsigned int AreaNo);
 	DT_OSMAreaBBox* getFirstArea();
 	DT_OSMAreaBBox* getNextArea();
-
+//false
 };
 
 #endif /* AREASLIST_H_ */
