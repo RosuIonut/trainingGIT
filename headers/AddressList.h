@@ -27,8 +27,6 @@ public:
 
 	int getAddressesNo();
 	void addAddress(DT_MapNodeAddress *address);
-	DT_MapNodeAddress* getAddress(int NodeAddressId);
-	DT_MapNodeAddress* getFirstAddress();
 	DT_MapNodeAddress* getNextAddress();
 };
 
