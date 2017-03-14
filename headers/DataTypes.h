@@ -7,7 +7,7 @@ extern "C" {
 
 typedef struct
 {
-	int horiz_start;
+	int horiz_startt;
 	int vert_start;
 	int horiz_size;
 	int vert_size;
