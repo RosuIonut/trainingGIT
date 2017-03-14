@@ -8,14 +8,6 @@
 
 // qt
 #include <QPen>
-#include <QPainterPath>
-
-extern "C" {
-#include "MapInfo.h"
-//#include "FastUtils.h"
-#include "MapUtils.h"
-//#include "StringParsers.h"
-//#include "DataInfo.h"
 //#include "DataStructures.h"
 }
 
