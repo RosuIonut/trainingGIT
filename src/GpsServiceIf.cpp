@@ -13,6 +13,8 @@
 
 /*
  * Implementation of interface class GpsServiceIf
+ *
+ *
  */
 
 GpsServiceIf::GpsServiceIf(const QString &service, const QString &path, const QDBusConnection &connection, QObject *parent)

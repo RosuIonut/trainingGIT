@@ -7,6 +7,8 @@
 
 /**
  *	Main: perform initializing, create window, draw
+ *
+ *
  **/
 int
 main(int argc, char** argv)
