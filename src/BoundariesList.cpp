@@ -1,22 +1,4 @@
-#include "BoundariesList.h"
-
-/**
- *	Constructor for BoundariesList, set map iterator to end
- **/
-CBoundariesList::CBoundariesList()
-{
-	m_MapIterator = m_vBoundaries.begin();
-}
-
-/**
- *	Destructor for BoundariesList, delete all data
- **/
-CBoundariesList::~CBoundariesList()
-{
-	multimap<int, DT_OSMBoundaryBBox*>::iterator iter;
-
-	//delete all data
-	for (iter = m_vBoundaries.begin(); iter != m_vBoundaries.end(); iter++) {
+ries.end(); iter++) {
 		OSM_Boundary_BBox_Free((*iter).second);
 	}
 
