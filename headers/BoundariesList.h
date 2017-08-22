@@ -24,8 +24,6 @@ public:
 	int countBoundaries(unsigned int iBoundaryId);
 	DT_OSMBoundaryBBox* getBoundary(unsigned int iBoundaryId, unsigned int BoundaryNo);
 	DT_OSMBoundaryBBox* getFirstBoundary();
-	DT_OSMBoundaryBBox* getNextBoundary();
-
 };
 
 #endif /* BOUNDARIESLIST_H_ */
