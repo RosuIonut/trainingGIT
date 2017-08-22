@@ -9,10 +9,6 @@ DrawStyle::DrawStyle()
 
 }
 
-DrawStyle::~DrawStyle()
-{
-	delete s_instance;
-}
 
 DrawStyle *
 DrawStyle::getMapDrawStyle()
