@@ -6,7 +6,7 @@ DrawStyle* DrawStyle::s_instance = NULL;
 
 DrawStyle::DrawStyle()
 {
-
+	return 0;
 }
 
 
