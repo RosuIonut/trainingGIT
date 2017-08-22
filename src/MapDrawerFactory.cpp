@@ -34,9 +34,6 @@ MapDrawer* MapDrawerFactory::GetDrawer(QWidget* parent, int iMapDrawWidth, int i
     case OPENGL:
         return  new MapDrawerGL(parent, iMapDrawWidth, iMapDrawHeight);
         break;
-    case GRAPHIC_SCENE:
-        return  new MapDrawerGS(parent, iMapDrawWidth, iMapDrawHeight);
-        break;
      }
 }
 
