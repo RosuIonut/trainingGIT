@@ -41,7 +41,6 @@ int DrawStyle::getWayWidth(unsigned short way_type, unsigned int zoom)
 
 QPen DrawStyle::setRoadPenStyle (unsigned short way_type, unsigned int zoom, int render_step)
 {
-	QPen wayStyle;
 	const QColor wayscolorsoutside[] = {0x003370, 0x003370, 0x1a5010, 0x1a5010, 0x701505,
 										0x701505, 0xeebb00, 0xeebb00, 0xeebb00, Qt::darkGray,
 										Qt::darkGray, //road type
