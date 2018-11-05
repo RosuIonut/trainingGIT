@@ -1,0 +1,110 @@
+# File written by MRTS-lib 1.0
+Begin Testspec
+Format: MRTSF 1
+Filename: warn.mrts
+Revision: 1.0
+Extracted:
+Annotated: on 2016-03-18 at 16:45:00 by uidu4012 (TFInterface 1.0)
+Evaluated:
+
+#=============================== PrioContainer: Demonstration of test frame capabilities
+Begin Test PrioCOntainerReg
+Name: Registration and deregistration of Prio Containers in various views
+
+#----------------------------------- PrioCont1: Check Prio container activation
+Begin Testcase PrioCont1
+Name: Check Prio container registration
+Prio: 1
+
+Begin Input
+PremIds(MFA_Range)
+prioreg(1)
+priowid(1)
+KeyPress(MFL_NEXT)
+Sleep(100)
+KeyRelease(MFL_NEXT)
+PremIds(MAIN_MFL)
+prioreg(2)
+priowid(2)
+Sleep(4000)
+PremIds(FAS_IDLE)
+prioreg(3)
+priowid(3)
+KeyPress(MFL_NEXT)
+Sleep(100)
+KeyRelease(MFL_NEXT)
+PremIds(MAIN_MFL)
+prioreg(4)
+priowid(4)
+Sleep(4000)
+PremIds(NAVIGATION_OP_TEXTS)
+prioreg(5)
+priowid(5)
+KeyPress(MFL_NEXT)
+Sleep(100)
+KeyRelease(MFL_NEXT)
+PremIds(MAIN_MFL)
+prioreg(6)
+priowid(6)
+Sleep(4000)
+PremIds(AUDIO_DEFECT)
+prioreg(7)
+priowid(7)
+KeyPress(MFL_NEXT)
+Sleep(100)
+KeyRelease(MFL_NEXT)
+PremIds(MAIN_MFL)
+prioreg(8)
+priowid(8)
+Sleep(4000)
+PremIds(PHONE_NOT_AVAILABLE_BY_BAP_TIMEOUT)
+prioreg(9)
+priowid(9)
+KeyPress(MFL_NEXT)
+Sleep(100)
+KeyRelease(MFL_NEXT)
+PremIds(MAIN_MFL)
+prioreg(10)
+priowid(10)
+Sleep(4000)
+PremIds(FS_Warning)
+prioreg(11)
+priowid(11)
+End Input
+Begin Expected
+Changed(prioreg_ret, 1)
+Changed(PrioWid_ret, 1)
+Changed(prioreg_ret, 2)
+Changed(PrioWid_ret, 2)
+Changed(prioreg_ret, 3)
+Changed(PrioWid_ret, 3)
+Changed(prioreg_ret, 4)
+Changed(PrioWid_ret, 4)
+Changed(prioreg_ret, 5)
+Changed(PrioWid_ret, 5)
+Changed(prioreg_ret, 6)
+Changed(PrioWid_ret, 6)
+Changed(prioreg_ret, 7)
+Changed(PrioWid_ret, 7)
+Changed(prioreg_ret, 8)
+Changed(PrioWid_ret, 8)
+Changed(prioreg_ret, 9)
+Changed(PrioWid_ret, 9)
+Changed(prioreg_ret, 10)
+Changed(PrioWid_ret, 10)
+Changed(prioreg_ret, 11)
+Changed(PrioWid_ret, 11)
+End Expected
+Begin Output
+Data = prioreg_ret, Arg = 0x00000001
+Data = PrioWid_ret, Arg = 0x00000001
+End Output
+
+Result:
+End Testcase
+#------------------------------------------------------------------------------
+
+#------------------------------------------------------------------------------
+End Test
+#==============================================================================
+End Testspec

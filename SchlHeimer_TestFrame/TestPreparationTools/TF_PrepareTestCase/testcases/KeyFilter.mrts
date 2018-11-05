@@ -1,0 +1,172 @@
+# File written by MRTS-lib 1.0
+Begin Testspec
+Format: MRTSF 1
+Filename: warn.mrts
+Revision: 1.0
+Extracted:
+Annotated: on 2016-07-08 at 16:45:38 by uidu4012 (TFInterface 1.0)
+Evaluated:
+
+#================= Keyfilter: Check if req key messages will be removed from me
+Begin Test Keyfilter
+Name: Check if req key messages will be removed from message queue
+
+#------------------------- WarnOn_PressRelease: Check Prio container activation
+Begin Testcase WarnOn_PressRelease
+Name: Check Prio container activation
+Prio: 1
+
+Begin Input
+liststart(19056)
+listinsert(19057)
+hmipreactwarn(41510)
+Sleep(1000)
+hmiwarnOff(41510)
+End Input
+Begin Expected
+Changed(HMIMessage_ID, 2015)
+Changed(HMIMessage_DATA, 19056)
+Changed(HMIMessage_ID, 2015)
+Changed(HMIMessage_DATA, 19057)
+End Expected
+Begin Output
+End Output
+
+Result:
+End Testcase
+#------------------------------------------------------------------------------
+
+#----------------- WarnOn_MultiplePressRelease: Check Prio container activation
+Begin Testcase WarnOn_MultiplePressRelease
+Name: Check Prio container activation
+Prio: 1
+
+Begin Input
+liststart(19056)
+listinsert(19057)
+listinsert(19056)
+listinsert(19057)
+hmipreactwarn(41510)
+Sleep(1000)
+hmiwarnOff(41510)
+End Input
+Begin Expected
+Changed(HMIMessage_ID, 2015)
+Changed(HMIMessage_DATA, 19056)
+Changed(HMIMessage_ID, 2015)
+Changed(HMIMessage_DATA, 19057)
+Changed(HMIMessage_ID, 2015)
+Changed(HMIMessage_DATA, 19056)
+Changed(HMIMessage_ID, 2015)
+Changed(HMIMessage_DATA, 19057)
+End Expected
+Begin Output
+End Output
+
+Result:
+End Testcase
+#------------------------------------------------------------------------------
+
+#---------------------------------- WarnOn_RPR: Check Prio container activation
+Begin Testcase WarnOn_RPR
+Name: Check Prio container activation
+Prio: 1
+
+Begin Input
+liststart(19057)
+listinsert(19056)
+listinsert(19057)
+hmipreactwarn(41510)
+Sleep(1000)
+hmiwarnOff(41510)
+End Input
+Begin Expected
+Changed(HMIMessage_ID, 2015)
+Changed(HMIMessage_DATA, 19056)
+Changed(HMIMessage_ID, 2015)
+Changed(HMIMessage_DATA, 19057)
+End Expected
+Begin Output
+End Output
+
+Result:
+End Testcase
+#------------------------------------------------------------------------------
+
+#-------------------------- WarnOn_ReleaseOnly: Check Prio container activation
+Begin Testcase WarnOn_ReleaseOnly
+Name: Check Prio container activation
+Prio: 1
+
+Begin Input
+liststart(19057)
+hmipreactwarn(41510)
+Sleep(1000)
+hmiwarnOff(41510)
+End Input
+Begin Expected
+NotChanged(HMIMessage_ID, 2015)
+NotChanged(HMIMessage_DATA, 19057)
+End Expected
+Begin Output
+End Output
+
+Result:
+End Testcase
+#------------------------------------------------------------------------------
+
+#------------------------------------------ Kl15off_keys: Check message removal
+Begin Testcase Kl15off_keys
+Name: Check message removal
+Prio: 1
+
+Begin Input
+liststart(19076)
+listinsert(19077)
+klemme15(0)
+Sleep(1000)
+klemme15(1)
+End Input
+Begin Expected
+Changed(HMIMessage_ID, 2015)
+Changed(HMIMessage_DATA, 19076)
+Changed(HMIMessage_ID, 2015)
+Changed(HMIMessage_DATA, 19077)
+End Expected
+Begin Output
+End Output
+
+Result:
+End Testcase
+#------------------------------------------------------------------------------
+
+#----------------- OverVoltage: Check key filter activation in case of overvolt
+Begin Testcase OverVoltage
+Name: Check key filter activation in case of overvoltage
+Prio: 1
+
+Begin Input
+liststart(19076)
+listinsert(19077)
+overvoltage(1)
+Sleep(1000)
+End Input
+Begin Expected
+Changed(HMIMessage_ID, 2015)
+Changed(HMIMessage_DATA, 19076)
+Changed(HMIMessage_ID, 2015)
+Changed(HMIMessage_DATA, 19077)
+Changed(HMIMessage_ID, 2015)
+Changed(HMIMessage_DATA, 19076)
+Changed(HMIMessage_ID, 2015)
+Changed(HMIMessage_DATA, 19077)
+End Expected
+Begin Output
+End Output
+
+Result:
+End Testcase
+#------------------------------------------------------------------------------
+End Test
+#==============================================================================
+End Testspec

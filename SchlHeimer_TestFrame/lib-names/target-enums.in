@@ -1,0 +1,58 @@
+#ifndef TARGET_ENUMS_HPP
+#define TARGET_ENUMS_HPP
+
+namespace target
+{
+
+/////////////////////////////////////////////////////////////////////////////
+// WARNING: THIS IS GENERATED CODE! DO NOT CHANGE, DO NOT CHECK IN!
+//
+// Edit the input specification if you want to add/remove something.
+//
+// INPUT     :
+// GENERATED :
+/////////////////////////////////////////////////////////////////////////////
+
+
+// MessageID 1000..
+// INSERT enum "enFrameworkMessageID" from "..\..\adapt\gen\brutus\WRS_CEnumerations.h"
+
+// MessageID 2000..
+// INSERT enum "WRS_WidgetTransitionEvents" from "..\..\adapt\gen\brutus\wrs_widgettransitionevents.hpp"
+
+// MessageID 3000..
+// INSERT enum "StateMachineEventIDs" from "..\..\adapt\gen\brutus\WRS_StateMachineResourceIDs.hpp"
+
+// MessageID 10000..
+// INSERT enum "WRS_ExternalEvents" from "..\..\adapt\gen\brutus\WRS_ExternalEventDefinitions.h"
+
+// MessageID 30000..
+// INSERT enum "enWidgetMessageID" from "..\..\adapt\gen\brutus\WRS_Enumerations.hpp"
+
+// MessageID 35000..
+// INSERT enum "enWidgetTimerID" from "..\..\adapt\gen\brutus\WRS_Enumerations.hpp"
+
+// Not used: enum "BufletIDs" from "..\..\adapt\gen\brutus\WRS_CIAResourceIDs.hpp"
+
+// INSERT enum "WidgetIDs" from "..\..\adapt\gen\brutus\WRS_VisualResourceIDs.hpp"
+
+// INSERT enum "enSignalId" from "..\..\adapt\gen\proseco\ipc_idgen.h"
+
+// INSERT enum "EVHD_enSendEvent" from "..\..\adapt\gen\proseco\evhd_events.h"
+
+// INSERT enum "EVHD_enReceiveEvent" from "..\..\adapt\gen\proseco\evhd_events.h"
+
+// INSERT enum "APIM_tenDataId" from "..\..\adapt\gen\apimgr\APIM1ce.h"
+
+// INSERT enum "RSST_enDependentType" from "..\..\adapt\gen\rsst\rsst__ddefsid_d1h.h"
+
+// INSERT enum "CRHDL_enSMState" from "..\..\pkg\midware\pkg\crhdl\core\crhdl1ct.h"
+
+// INSERT enum "enSSMState" from "..\..\pkg\hmi\pkg\self\core\SELF_SelfTypes.hpp"
+
+// INSERT enum "Event" from "..\..\pkg\art47\pkg\was\core\WAS_HMItimedomain.hpp"
+
+
+}
+
+#endif

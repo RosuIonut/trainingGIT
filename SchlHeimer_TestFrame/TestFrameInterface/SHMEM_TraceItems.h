@@ -1,0 +1,1 @@
+#include "../../pkg/testtools/core/SHMEM_TraceItems.h"

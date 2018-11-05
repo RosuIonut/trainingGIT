@@ -1,0 +1,286 @@
+# File written by MRTS-lib 1.0
+Begin Testspec
+Format: MRTSF 1
+Filename: ITS_Warn_6_1_2.mrts
+Revision: 1.0
+Extracted:
+Annotated: on 2016-08-23 at 09:39:39 by uidu4012 (TFInterface 1.0)
+Evaluated:
+
+#================= PrioReg_InitWarn: ITS 6.1.2	Registering when a warning is ac
+Begin Test PrioReg_InitWarn
+Name: ITS 6.1.2	Registering when a warning is activated
+
+#----------------- PrioInitWarn: Tests registration of prio containers in PREM 
+Begin Testcase PrioInitWarn
+Name: Tests registration of prio containers in PREM when the first warning occurs
+Prio: 1
+
+Begin Input
+hmiwarnoff(41510)
+Sleep(100)
+liststart(97)
+listinsert(88)
+listinsert(90)
+listinsert(91)
+listinsert(92)
+listinsert(64)
+listinsert(52)
+allwayson(91)
+prioreg(1)
+priowid(1)
+hmiwarn(41510)
+Sleep(100)
+prioscheduler(39)
+Sleep(3000)
+KeyPress(MFL_OK)
+Sleep(100)
+KeyRelease(MFL_OK)
+hmiwarnoff(41510)
+Sleep(100)
+KeyPress(MFL_NEXT)
+Sleep(100)
+KeyRelease(MFL_NEXT)
+liststart(60)
+listinsert(74)
+listinsert(62)
+listinsert(63)
+listinsert(64)
+listinsert(52)
+allwayson(63)
+prioreg(2)
+priowid(2)
+Sleep(4000)
+liststart(75)
+listinsert(140)
+listinsert(78)
+listinsert(79)
+listinsert(77)
+listinsert(64)
+listinsert(52)
+allwayson(78)
+prioreg(3)
+priowid(3)
+hmiwarn(41510)
+Sleep(100)
+prioscheduler(39)
+Sleep(3000)
+KeyPress(MFL_OK)
+Sleep(100)
+KeyRelease(MFL_OK)
+hmiwarnoff(41510)
+Sleep(100)
+KeyPress(MFL_NEXT)
+Sleep(100)
+KeyRelease(MFL_NEXT)
+liststart(60)
+listinsert(74)
+listinsert(62)
+listinsert(63)
+listinsert(64)
+listinsert(52)
+allwayson(63)
+prioreg(4)
+priowid(4)
+Sleep(4000)
+liststart(175)
+listinsert(121)
+listinsert(123)
+listinsert(124)
+listinsert(125)
+listinsert(64)
+listinsert(52)
+allwayson(124)
+prioreg(5)
+priowid(5)
+hmiwarn(41510)
+Sleep(100)
+prioscheduler(39)
+Sleep(3000)
+KeyPress(MFL_OK)
+Sleep(100)
+KeyRelease(MFL_OK)
+hmiwarnoff(41510)
+Sleep(100)
+KeyPress(MFL_NEXT)
+Sleep(100)
+KeyRelease(MFL_NEXT)
+liststart(60)
+listinsert(74)
+listinsert(62)
+listinsert(63)
+listinsert(64)
+listinsert(52)
+allwayson(63)
+prioreg(6)
+priowid(6)
+Sleep(4000)
+liststart(181)
+listinsert(160)
+listinsert(162)
+listinsert(163)
+listinsert(164)
+listinsert(64)
+listinsert(52)
+allwayson(164)
+prioreg(7)
+priowid(7)
+hmiwarn(41510)
+Sleep(100)
+prioscheduler(39)
+Sleep(3000)
+KeyPress(MFL_OK)
+Sleep(100)
+KeyRelease(MFL_OK)
+hmiwarnoff(41510)
+Sleep(100)
+KeyPress(MFL_NEXT)
+Sleep(100)
+KeyRelease(MFL_NEXT)
+liststart(60)
+listinsert(74)
+listinsert(62)
+listinsert(63)
+listinsert(64)
+listinsert(52)
+allwayson(63)
+prioreg(8)
+priowid(8)
+Sleep(4000)
+liststart(222)
+listinsert(51)
+listinsert(130)
+listinsert(54)
+listinsert(131)
+listinsert(64)
+listinsert(52)
+allwayson(131)
+prioreg(9)
+priowid(9)
+hmiwarn(41510)
+Sleep(100)
+prioscheduler(39)
+Sleep(3000)
+KeyPress(MFL_OK)
+Sleep(100)
+KeyRelease(MFL_OK)
+hmiwarnoff(41510)
+Sleep(100)
+KeyPress(MFL_NEXT)
+Sleep(100)
+KeyRelease(MFL_NEXT)
+liststart(60)
+listinsert(74)
+listinsert(62)
+listinsert(63)
+listinsert(64)
+listinsert(52)
+allwayson(63)
+prioreg(10)
+priowid(10)
+Sleep(4000)
+liststart(83)
+listinsert(115)
+listinsert(85)
+listinsert(86)
+listinsert(87)
+listinsert(64)
+listinsert(52)
+allwayson(86)
+prioreg(11)
+priowid(11)
+hmiwarn(41510)
+Sleep(100)
+prioscheduler(39)
+Sleep(3000)
+KeyPress(MFL_OK)
+Sleep(100)
+KeyRelease(MFL_OK)
+hmiwarnoff(41510)
+Sleep(100)
+End Input
+Begin Expected
+Changed(prioreg_ret, 1)
+Changed(PrioWid_ret, 1)
+Changed(Warnkey, 41510)
+Changed(PrioScheduler_ret, 1)
+Changed(prioreg_ret, 2)
+Changed(PrioWid_ret, 2)
+Changed(prioreg_ret, 3)
+Changed(PrioWid_ret, 3)
+Changed(Warnkey, 41510)
+Changed(PrioScheduler_ret, 1)
+Changed(prioreg_ret, 4)
+Changed(PrioWid_ret, 4)
+Changed(prioreg_ret, 5)
+Changed(PrioWid_ret, 5)
+Changed(Warnkey, 41510)
+Changed(PrioScheduler_ret, 1)
+Changed(prioreg_ret, 6)
+Changed(PrioWid_ret, 6)
+Changed(prioreg_ret, 7)
+Changed(PrioWid_ret, 7)
+Changed(Warnkey, 41510)
+Changed(PrioScheduler_ret, 1)
+Changed(prioreg_ret, 8)
+Changed(PrioWid_ret, 8)
+Changed(prioreg_ret, 9)
+Changed(PrioWid_ret, 9)
+Changed(Warnkey, 41510)
+Changed(PrioScheduler_ret, 1)
+Changed(prioreg_ret, 10)
+Changed(PrioWid_ret, 10)
+Changed(prioreg_ret, 11)
+Changed(PrioWid_ret, 11)
+Changed(Warnkey, 41510)
+Changed(PrioScheduler_ret, 1)
+End Expected
+Begin Output
+Data = prioreg_ret, Arg = 0x00000001
+Data = PrioWid_ret, Arg = 0x00000001
+Data = Warnkey, Arg = 0x0000a226
+Data = PrioScheduler_ret, Arg = 0x00000001
+Data = Warnkey, Arg = 0x00000000
+Data = prioreg_ret, Arg = 0x00000002
+Data = PrioWid_ret, Arg = 0x00000002
+Data = prioreg_ret, Arg = 0x00000003
+Data = PrioWid_ret, Arg = 0x00000003
+Data = Warnkey, Arg = 0x0000a226
+Data = PrioScheduler_ret, Arg = 0x00000001
+Data = Warnkey, Arg = 0x00000000
+Data = prioreg_ret, Arg = 0x00000004
+Data = PrioWid_ret, Arg = 0x00000004
+Data = prioreg_ret, Arg = 0x00000005
+Data = PrioWid_ret, Arg = 0x00000005
+Data = Warnkey, Arg = 0x0000a226
+Data = PrioScheduler_ret, Arg = 0x00000001
+Data = Warnkey, Arg = 0x00000000
+Data = prioreg_ret, Arg = 0x00000006
+Data = PrioWid_ret, Arg = 0x00000006
+Data = prioreg_ret, Arg = 0x00000007
+Data = PrioWid_ret, Arg = 0x00000007
+Data = Warnkey, Arg = 0x0000a226
+Data = PrioScheduler_ret, Arg = 0x00000001
+Data = Warnkey, Arg = 0x00000000
+Data = prioreg_ret, Arg = 0x00000008
+Data = PrioWid_ret, Arg = 0x00000008
+Data = prioreg_ret, Arg = 0x00000009
+Data = PrioWid_ret, Arg = 0x00000009
+Data = Warnkey, Arg = 0x0000a226
+Data = PrioScheduler_ret, Arg = 0x00000001
+Data = Warnkey, Arg = 0x00000000
+Data = prioreg_ret, Arg = 0x0000000a
+Data = PrioWid_ret, Arg = 0x0000000a
+Data = prioreg_ret, Arg = 0x0000000b
+Data = PrioWid_ret, Arg = 0x0000000b
+Data = Warnkey, Arg = 0x0000a226
+Data = PrioScheduler_ret, Arg = 0x00000001
+Data = Warnkey, Arg = 0x00000000
+End Output
+
+Result:
+End Testcase
+#------------------------------------------------------------------------------
+End Test
+#==============================================================================
+End Testspec

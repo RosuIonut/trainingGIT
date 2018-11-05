@@ -1,0 +1,237 @@
+# File written by MRTS-lib 1.0
+Begin Testspec
+Format: MRTSF 1
+Filename: ITS_Warn_6_1_3.mrts
+Revision: 1.0
+Extracted:
+Annotated: on 2016-05-05 at 10:04:44 by uidp2530 (TFInterface 1.0)
+Evaluated:
+
+#=============================== ITS_Warn_6_1_3
+Begin Test PrioReg_ActiveWarn
+Name: ITS 6.1.3	Registering with an active warning
+
+#----------------------------------- 
+Begin Testcase PrioReg_RightWarn
+Name: Tests registration of prio containers in PREM switching right(MFL_Next) with warning activated
+Prio: 1
+
+Begin Input
+#----------------------------------- Pre condition
+hmiwarnoff(41510)
+hmiwarn(41510)
+WarnPrem(41510)
+Sleep(3000)
+KeyPress(MFL_OK)
+Sleep(100)
+KeyRelease(MFL_OK)
+Sleep(1000)
+#----------------------------------- MFA to Assist
+PremIds(MFA_Range)
+prioreg(1)
+priowid(1)
+KeyPress(MFL_NEXT)
+Sleep(100)
+KeyRelease(MFL_NEXT)
+PremIds(MAIN_MFL)
+prioreg(2)
+priowid(2)
+Sleep(4000)
+PremIds(FAS_IDLE)
+prioreg(3)
+priowid(3)
+Sleep(1000)
+#----------------------------------- Assist to Navi
+KeyPress(MFL_NEXT)
+Sleep(100)
+KeyRelease(MFL_NEXT)
+PremIds(MAIN_MFL)
+prioreg(4)
+priowid(4)
+Sleep(4000)
+PremIds(NAVIGATION_COMPASS)
+prioreg(5)
+priowid(5)
+Sleep(1000)
+#----------------------------------- Navi to Audio
+KeyPress(MFL_NEXT)
+Sleep(100)
+KeyRelease(MFL_NEXT)
+PremIds(MAIN_MFL)
+prioreg(6)
+priowid(6)
+Sleep(4000)
+PremIds(AUDIO_ALL)
+prioreg(7)
+priowid(7)
+Sleep(1000)
+#----------------------------------- Audio to Phone
+KeyPress(MFL_NEXT)
+Sleep(100)
+KeyRelease(MFL_NEXT)
+PremIds(MAIN_MFL)
+prioreg(8)
+priowid(8)
+Sleep(4000)
+PremIds(PHONE_IDLE_SCREEN)
+prioreg(9)
+priowid(9)
+Sleep(1000)
+#----------------------------------- Phone to Warning
+KeyPress(MFL_NEXT)
+Sleep(100)
+KeyRelease(MFL_NEXT)
+PremIds(MAIN_MFL)
+prioreg(10)
+priowid(10)
+Sleep(4000)
+PremIds(FS_Warning)
+prioreg(11)
+priowid(11)
+Sleep(1000)
+
+End Input
+Begin Expected
+Changed(Warnkey, 41510)
+Changed(PrioScheduler_ret, 1)
+Changed(prioreg_ret, 1)
+Changed(PrioWid_ret, 1)
+Changed(prioreg_ret, 2)
+Changed(PrioWid_ret, 2)
+Changed(prioreg_ret, 3)
+Changed(PrioWid_ret, 3)
+Changed(prioreg_ret, 4)
+Changed(PrioWid_ret, 4)
+Changed(prioreg_ret, 5)
+Changed(PrioWid_ret, 5)
+Changed(prioreg_ret, 6)
+Changed(PrioWid_ret, 6)
+Changed(prioreg_ret, 7)
+Changed(PrioWid_ret, 7)
+Changed(prioreg_ret, 8)
+Changed(PrioWid_ret, 8)
+Changed(prioreg_ret, 9)
+Changed(PrioWid_ret, 9)
+Changed(prioreg_ret, 10)
+Changed(PrioWid_ret, 10)
+Changed(prioreg_ret, 11)
+Changed(PrioWid_ret, 11)
+End Expected
+Begin Output
+End Output
+
+Result:
+End Testcase
+#------------------------------------------------------------------------------
+Begin Testcase PrioReg_LeftWarn
+Name: Tests registration of prio containers in PREM switching left(MFL_PREV) with warning activated
+Prio: 1
+Begin Input
+#----------------------------------- Pre condition
+hmiwarnoff(41510)
+hmiwarn(41510)
+WarnPrem(41510)
+Sleep(3000)
+KeyPress(MFL_OK)
+Sleep(100)
+KeyRelease(MFL_OK)
+Sleep(1000)
+#----------------------------------- MFA to Warn
+PremIds(MFA_Range)
+prioreg(1)
+priowid(1)
+KeyPress(MFL_PREV)
+Sleep(100)
+KeyRelease(MFL_PREV)
+PremIds(MAIN_MFL)
+prioreg(2)
+priowid(2)
+Sleep(4000)
+PremIds(FS_Warning)
+prioreg(3)
+priowid(3)
+Sleep(1000)
+#----------------------------------- Warn to Telefon
+KeyPress(MFL_PREV)
+Sleep(100)
+KeyRelease(MFL_PREV)
+PremIds(MAIN_MFL)
+prioreg(4)
+priowid(4)
+Sleep(4000)
+PremIds(PHONE_IDLE_SCREEN)
+prioreg(5)
+priowid(5)
+Sleep(1000)
+#----------------------------------- Telefon to Audio
+KeyPress(MFL_PREV)
+Sleep(100)
+KeyRelease(MFL_PREV)
+PremIds(MAIN_MFL)
+prioreg(6)
+priowid(6)
+Sleep(4000)
+PremIds(AUDIO_ALL)
+prioreg(7)
+priowid(7)
+Sleep(1000)
+#----------------------------------- Audio to Navi
+KeyPress(MFL_PREV)
+Sleep(100)
+KeyRelease(MFL_PREV)
+PremIds(MAIN_MFL)
+prioreg(8)
+priowid(8)
+Sleep(4000)
+PremIds(NAVIGATION_COMPASS)
+prioreg(9)
+priowid(9)
+Sleep(1000)
+#----------------------------------- Navi to Assist
+KeyPress(MFL_PREV)
+Sleep(100)
+KeyRelease(MFL_PREV)
+PremIds(MAIN_MFL)
+prioreg(10)
+priowid(10)
+Sleep(4000)
+PremIds(FAS_IDLE)
+prioreg(11)
+priowid(11)
+Sleep(1000)
+
+End Input
+Begin Expected
+Changed(Warnkey, 41510)
+Changed(PrioScheduler_ret, 1)
+Changed(prioreg_ret, 1)
+Changed(PrioWid_ret, 1)
+Changed(prioreg_ret, 2)
+Changed(PrioWid_ret, 2)
+Changed(prioreg_ret, 3)
+Changed(PrioWid_ret, 3)
+Changed(prioreg_ret, 4)
+Changed(PrioWid_ret, 4)
+Changed(prioreg_ret, 5)
+Changed(PrioWid_ret, 5)
+Changed(prioreg_ret, 6)
+Changed(PrioWid_ret, 6)
+Changed(prioreg_ret, 7)
+Changed(PrioWid_ret, 7)
+Changed(prioreg_ret, 8)
+Changed(PrioWid_ret, 8)
+Changed(prioreg_ret, 9)
+Changed(PrioWid_ret, 9)
+Changed(prioreg_ret, 10)
+Changed(PrioWid_ret, 10)
+Changed(prioreg_ret, 11)
+Changed(PrioWid_ret, 11)
+End Expected
+Begin Output
+End Output
+
+End Testcase
+#------------------------------------------------------------------------------
+End Test
+#==============================================================================
+End Testspec

@@ -1,0 +1,54 @@
+# File written by MRTS-lib 1.0
+Begin Testspec
+Format: MRTSF 1
+Filename: warn.mrts
+Revision: 1.0
+Extracted:
+Annotated: on 2016-03-18 at 16:45:00 by uidu4012 (TFInterface 1.0)
+Evaluated:
+
+#=============================== demo: Demonstration of test frame capabilities
+Begin Test demo
+Name: Demonstration of test frame capabilities
+
+#----------------------------------- PrioCont1: Check Prio container activation
+Begin Testcase PrioCont1
+Name: Check Prio container activation
+Prio: 1
+
+Begin Input
+PremIds(MFA_Range)
+prioact(0)
+priowid(0)
+KeyPress(MFL_NEXT)
+Sleep(100)
+KeyRelease(MFL_NEXT)
+PremIds(MAIN_MFL)
+prioact(0)
+priowid(0)
+Sleep(4000)
+PremIds(FAS_IDLE)
+prioact(0)
+priowid(0)
+End Input
+Begin Expected
+Changed(PrioAct_ret, 1)
+Changed(PrioWid_ret, 1)
+Changed(PrioAct_ret, 1)
+Changed(PrioWid_ret, 1)
+Changed(PrioAct_ret, 1)
+Changed(PrioWid_ret, 1)
+End Expected
+Begin Output
+Data = PrioAct_ret, Arg = 0x00000001
+Data = PrioWid_ret, Arg = 0x00000001
+End Output
+
+Result:
+End Testcase
+#------------------------------------------------------------------------------
+
+#------------------------------------------------------------------------------
+End Test
+#==============================================================================
+End Testspec

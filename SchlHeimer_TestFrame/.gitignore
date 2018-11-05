@@ -1,0 +1,9 @@
+TestFrameInterface/Debug/
+*/*.vcxproj.filters
+*/*.vcxproj.user
+TestframeSystem.v12.suo
+Backup/
+Debug/
+TestframeSystem.opensdf
+TestframeSystem.sdf
+UpgradeLog.htm

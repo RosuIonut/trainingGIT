@@ -1,0 +1,370 @@
+# File written by MRTS-lib 1.0
+Begin Testspec
+Format: MRTSF 1
+Filename: ITS_6_1_4.mrts
+Revision: 1.0
+Extracted:
+Annotated: on 2016-05-20 at 10:04:44 by uidp2530 (TFInterface 1.0)
+Evaluated:
+
+#=============================== Prio Container activation for warnings
+Begin Test Warning Activation
+Name: Check Prio Container activation
+
+#----------------------------------- Warning activation before widget is destroyed
+Begin Testcase PreDestroyWarn
+Name: Check Prio container activation
+Prio: 1
+
+Begin Input
+#-----------------------------------Pre condition: Press next to Carousel
+hmiwarnoff(0xA226)
+KeyPress(MFL_NEXT)
+Sleep(100)
+KeyRelease(MFL_NEXT)
+#-----------------------------------Check if is carousel view, activate schedule warning
+PremIds(MAIN_MFL)
+PreDestroyHmiWarn(0xA226)
+#-----------------------------------Press OK to FAS view
+Sleep(2000)
+KeyPress(MFL_OK)
+Sleep(100)
+KeyRelease(MFL_OK)
+#-----------------------------------Check for Warning activated and FAS View
+WarnPrem(0xA226)
+Sleep(1000)
+KeyPress(MFL_OK)
+Sleep(100)
+KeyRelease(MFL_OK)
+Sleep(1000)
+PremIds(FAS_IDLE)
+prioreg(1)
+priowid(1)
+
+#-----------------------------------Press next to Carousel
+hmiwarnoff(0xA226)
+KeyPress(MFL_NEXT)
+Sleep(100)
+KeyRelease(MFL_NEXT)
+#-----------------------------------Check if is carousel view, activate schedule warning
+PremIds(MAIN_MFL)
+PreDestroyHmiWarn(0xA226)
+#-----------------------------------Press OK to Navi view
+Sleep(2000)
+KeyPress(MFL_OK)
+Sleep(100)
+KeyRelease(MFL_OK)
+#-----------------------------------Check for Warning activated and Navi View
+WarnPrem(0xA226)
+Sleep(1000)
+KeyPress(MFL_OK)
+Sleep(100)
+KeyRelease(MFL_OK)
+Sleep(1000)
+PremIds(NAVIGATION_COMPASS)
+prioreg(2)
+priowid(2)
+
+#-----------------------------------Pre condition: Press next to Carousel
+hmiwarnoff(0xA226)
+KeyPress(MFL_NEXT)
+Sleep(100)
+KeyRelease(MFL_NEXT)
+#-----------------------------------Check if is carousel view, activate schedule warning
+PremIds(MAIN_MFL)
+PreDestroyHmiWarn(0xA226)
+#-----------------------------------Press OK to Audio view
+Sleep(2000)
+KeyPress(MFL_OK)
+Sleep(100)
+KeyRelease(MFL_OK)
+#-----------------------------------Check for Warning activated and Audio view
+WarnPrem(0xA226)
+Sleep(1000)
+KeyPress(MFL_OK)
+Sleep(100)
+KeyRelease(MFL_OK)
+Sleep(1000)
+PremIds(AUDIO_ALL)
+prioreg(3)
+priowid(3)
+
+#-----------------------------------Pre condition: Press next to Carousel
+hmiwarnoff(0xA226)
+KeyPress(MFL_NEXT)
+Sleep(100)
+KeyRelease(MFL_NEXT)
+#-----------------------------------Check if is carousel view, activate schedule warning
+PremIds(MAIN_MFL)
+PreDestroyHmiWarn(0xA226)
+#-----------------------------------Press OK to Phone view
+Sleep(2000)
+KeyPress(MFL_OK)
+Sleep(100)
+KeyRelease(MFL_OK)
+#-----------------------------------Check for Warning activated and Phone view
+WarnPrem(0xA226)
+Sleep(1000)
+KeyPress(MFL_OK)
+Sleep(100)
+KeyRelease(MFL_OK)
+Sleep(1000)
+PremIds(PHONE_IDLE_SCREEN)
+prioreg(4)
+priowid(4)
+
+#-----------------------------------Pre condition: Press next to Carousel
+hmiwarnoff(0xA226)
+KeyPress(MFL_NEXT)
+Sleep(100)
+KeyRelease(MFL_NEXT)
+#-----------------------------------Check if is carousel view, activate schedule warning
+PremIds(MAIN_MFL)
+PreDestroyHmiWarn(0xA226)
+#-----------------------------------Press OK to Warning view
+Sleep(2000)
+KeyPress(MFL_OK)
+Sleep(100)
+KeyRelease(MFL_OK)
+#-----------------------------------Check for Warning activated and Warn view
+WarnPrem(0xA226)
+Sleep(1000)
+KeyPress(MFL_OK)
+Sleep(100)
+KeyRelease(MFL_OK)
+Sleep(1000)
+PremIds(FS_Warning)
+prioreg(5)
+priowid(5)
+
+#-----------------------------------Pre condition: Press next to Carousel
+hmiwarnoff(0xA226)
+KeyPress(MFL_NEXT)
+Sleep(100)
+KeyRelease(MFL_NEXT)
+#-----------------------------------Check if is carousel view, activate schedule warning
+PremIds(MAIN_MFL)
+PreDestroyHmiWarn(0xA226)
+#-----------------------------------Press OK to Warning view
+Sleep(2000)
+KeyPress(MFL_OK)
+Sleep(100)
+KeyRelease(MFL_OK)
+#-----------------------------------Check for Warning activated and MFA view
+WarnPrem(0xA226)
+Sleep(1000)
+KeyPress(MFL_OK)
+Sleep(100)
+KeyRelease(MFL_OK)
+Sleep(1000)
+PremIds(MFA_Range)
+prioreg(6)
+priowid(6)
+
+End Input
+Begin Expected
+Changed(Warnkey, 0xA226)
+Changed(PrioScheduler_ret, 1)
+Changed(prioreg_ret, 1)
+Changed(PrioWid_ret, 1)
+Changed(Warnkey, 0xA226)
+Changed(PrioScheduler_ret, 1)
+Changed(prioreg_ret, 2)
+Changed(PrioWid_ret, 2)
+Changed(Warnkey, 0xA226)
+Changed(PrioScheduler_ret, 1)
+Changed(prioreg_ret, 3)
+Changed(PrioWid_ret, 3)
+Changed(Warnkey, 0xA226)
+Changed(PrioScheduler_ret, 1)
+Changed(prioreg_ret, 4)
+Changed(PrioWid_ret, 4)
+Changed(Warnkey, 0xA226)
+Changed(PrioScheduler_ret, 1)
+Changed(prioreg_ret, 5)
+Changed(PrioWid_ret, 5)
+Changed(Warnkey, 0xA226)
+Changed(PrioScheduler_ret, 1)
+Changed(prioreg_ret, 6)
+Changed(PrioWid_ret, 6)
+End Expected
+Begin Output
+End Output
+
+Result:
+End Testcase
+
+#----------------------------------- Warning activation before API update and widget is built
+Begin Testcase PreBuildWarn
+Name: Check Prio container activation
+Prio: 1
+Begin Input
+#-----------------------------------Pre condition: Press next to Carousel
+hmiwarnoff(0xA226)
+KeyPress(MFL_NEXT)
+Sleep(100)
+KeyRelease(MFL_NEXT)
+#-----------------------------------Check if is the new view is FAS, activate schedule warning
+PremIds(FAS_IDLE)
+PreBuildHmiWarn(0xA226)
+#-----------------------------------Press OK to FAS view
+Sleep(2000)
+KeyPress(MFL_OK)
+Sleep(100)
+KeyRelease(MFL_OK)
+#-----------------------------------Check for Warning activated and FAS View
+WarnPrem(0xA226)
+Sleep(1000)
+KeyPress(MFL_OK)
+Sleep(100)
+KeyRelease(MFL_OK)
+Sleep(1000)
+prioreg(1)
+priowid(1)
+#-----------------------------------Press next to Carousel
+hmiwarnoff(0xA226)
+KeyPress(MFL_NEXT)
+Sleep(100)
+KeyRelease(MFL_NEXT)
+#-----------------------------------Check if the new view is Navi, then activate schedule warning
+PremIds(NAVIGATION_COMPASS)
+PreDestroyHmiWarn(0xA226)
+#-----------------------------------Press OK to Navi view
+Sleep(2000)
+KeyPress(MFL_OK)
+Sleep(100)
+KeyRelease(MFL_OK)
+#-----------------------------------Check for Warning activated and Navi View
+WarnPrem(0xA226)
+Sleep(1000)
+KeyPress(MFL_OK)
+Sleep(100)
+KeyRelease(MFL_OK)
+Sleep(1000)
+prioreg(2)
+priowid(2)
+
+#-----------------------------------Pre condition: Press next to Carousel
+hmiwarnoff(0xA226)
+KeyPress(MFL_NEXT)
+Sleep(100)
+KeyRelease(MFL_NEXT)
+#-----------------------------------Check if is carousel view, activate schedule warning
+PremIds(AUDIO_ALL)
+PreDestroyHmiWarn(0xA226)
+#-----------------------------------Press OK to Audio view
+Sleep(2000)
+KeyPress(MFL_OK)
+Sleep(100)
+KeyRelease(MFL_OK)
+#-----------------------------------Check if the new view is Audio, then activate schedule warning
+WarnPrem(0xA226)
+Sleep(1000)
+KeyPress(MFL_OK)
+Sleep(100)
+KeyRelease(MFL_OK)
+Sleep(1000)
+prioreg(3)
+priowid(3)
+
+#-----------------------------------Pre condition: Press next to Carousel
+hmiwarnoff(0xA226)
+KeyPress(MFL_NEXT)
+Sleep(100)
+KeyRelease(MFL_NEXT)
+#-----------------------------------Check if the new view is Phone, then activate schedule warning
+PremIds(PHONE_IDLE_SCREEN)
+PreDestroyHmiWarn(0xA226)
+#-----------------------------------Press OK to Phone view
+Sleep(2000)
+KeyPress(MFL_OK)
+Sleep(100)
+KeyRelease(MFL_OK)
+#-----------------------------------Check for Warning activated and Phone view
+WarnPrem(0xA226)
+Sleep(1000)
+KeyPress(MFL_OK)
+Sleep(100)
+KeyRelease(MFL_OK)
+Sleep(1000)
+prioreg(4)
+priowid(4)
+
+#-----------------------------------Pre condition: Press next to Carousel
+hmiwarnoff(0xA226)
+KeyPress(MFL_NEXT)
+Sleep(100)
+KeyRelease(MFL_NEXT)
+#-----------------------------------Check if the new view is Warning, then activate schedule warning
+PremIds(FS_Warning)
+PreDestroyHmiWarn(0xA226)
+#-----------------------------------Press OK to Warning view
+Sleep(2000)
+KeyPress(MFL_OK)
+Sleep(100)
+KeyRelease(MFL_OK)
+#-----------------------------------Check for Warning activated and Warn view
+WarnPrem(0xA226)
+Sleep(1000)
+KeyPress(MFL_OK)
+Sleep(100)
+KeyRelease(MFL_OK)
+Sleep(1000)
+prioreg(5)
+priowid(5)
+
+#-----------------------------------Pre condition: Press next to Carousel
+hmiwarnoff(0xA226)
+KeyPress(MFL_NEXT)
+Sleep(100)
+KeyRelease(MFL_NEXT)
+#-----------------------------------Check if the new view is MFA, then activate schedule warning
+PremIds(MFA_Range)
+PreDestroyHmiWarn(0xA226)
+#-----------------------------------Press OK to Warning view
+Sleep(2000)
+KeyPress(MFL_OK)
+Sleep(100)
+KeyRelease(MFL_OK)
+#-----------------------------------Check for Warning activated and MFA view
+WarnPrem(0xA226)
+Sleep(1000)
+KeyPress(MFL_OK)
+Sleep(100)
+KeyRelease(MFL_OK)
+Sleep(1000)
+prioreg(6)
+priowid(6)
+End Input
+Begin Expected
+Changed(Warnkey, 0xA226)
+Changed(PrioScheduler_ret, 1)
+Changed(prioreg_ret, 1)
+Changed(PrioWid_ret, 1)
+Changed(Warnkey, 0xA226)
+Changed(PrioScheduler_ret, 1)
+Changed(prioreg_ret, 2)
+Changed(PrioWid_ret, 2)
+Changed(Warnkey, 0xA226)
+Changed(PrioScheduler_ret, 1)
+Changed(prioreg_ret, 3)
+Changed(PrioWid_ret, 3)
+Changed(Warnkey, 0xA226)
+Changed(PrioScheduler_ret, 1)
+Changed(prioreg_ret, 4)
+Changed(PrioWid_ret, 4)
+Changed(Warnkey, 0xA226)
+Changed(PrioScheduler_ret, 1)
+Changed(prioreg_ret, 5)
+Changed(PrioWid_ret, 5)
+Changed(Warnkey, 0xA226)
+Changed(PrioScheduler_ret, 1)
+Changed(prioreg_ret, 6)
+Changed(PrioWid_ret, 6)
+End Expected
+End Testcase
+
+#------------------------------------------------------------------------------
+End Test
+#==============================================================================
+End Testspec

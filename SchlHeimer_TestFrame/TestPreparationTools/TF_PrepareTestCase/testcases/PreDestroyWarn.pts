@@ -1,0 +1,59 @@
+# File written by MRTS-lib 1.0
+Begin Testspec
+Format: MRTSF 1
+Filename: PreDestroyWarn.mrts
+Revision: 1.0
+Extracted:
+Annotated: on 2016-05-13 at 10:04:44 by uidp2530 (TFInterface 1.0)
+Evaluated:
+
+#=============================== Prio Container activation for warnings
+Begin Test Warning Activation
+Name: Check Prio Container activation
+
+#----------------------------------- Warning activation before widget is destroyed
+Begin Testcase PreDestroyWarn
+Name: Check Prio container activation
+Prio: 1
+
+Begin Input
+#-----------------------------------Pre condition: Press next to Carousel
+hmiwarnoff(41510)
+KeyPress(MFL_NEXT)
+Sleep(100)
+KeyRelease(MFL_NEXT)
+#-----------------------------------Check if is carousel view, activate schedule warning
+PremIds(MAIN_MFL)
+PreDestroyHmiWarn(41510)
+#-----------------------------------Press OK to FAS view
+Sleep(2000)
+KeyPress(MFL_OK)
+Sleep(100)
+KeyRelease(MFL_OK)
+#-----------------------------------Check for warning activated
+WarnPrem(41510)
+Sleep(1000)
+KeyPress(MFL_OK)
+Sleep(100)
+KeyRelease(MFL_OK)
+Sleep(1000)
+PremIds(FAS_IDLE)
+prioreg(1)
+priowid(1)
+
+End Input
+Begin Expected
+Changed(Warnkey, 41510)
+Changed(PrioScheduler_ret, 1)
+Changed(prioreg_ret, 1)
+Changed(PrioWid_ret, 1)
+End Expected
+Begin Output
+End Output
+
+Result:
+End Testcase
+#------------------------------------------------------------------------------
+End Test
+#==============================================================================
+End Testspec

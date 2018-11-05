@@ -1,0 +1,172 @@
+############################################################################
+#=====================      Copyright by Continental AG      ===============
+############################################################################
+# Title        : TT.cmk
+#
+# Description  : CMake configuration file for TT (Schleiﬂheimer TestTool) component in the HMI module.
+#                This cmk file include defintions needed for creation of the TT component as a CF-Component within the HMI module
+#                Definition of all source- and header files of one package.
+#                To add this package to a project, include this file in the 
+#                corresponding CMakeLists.txt file.
+#
+# Environment  : CMake
+#
+# Responsible  : <Person responsible for file>
+#
+# Template name: pkg_template.cmk
+#
+# Revision List: (Will be filled by MKS)
+# Archive: $Log: TT_HMI.cmk  $
+# Archive: Revision 1.2 2016/05/27 15:19:04CEST Paudics, Julia (uidv9298) 
+# Archive: VAGF-1738: Correction of the LED's flickering on the right satellite
+# Archive: Revision 1.1 2016/04/27 09:08:46CEST Paudics, Julia (uidv9298) 
+# Archive: Initial revision
+# Archive: Member added to project /id/vag_MQB/sw/pkg/lmp/~vag_MQB.sw.pkg.lmp_RH850_MQBA0FAC_VarC/adapt/project.pj
+# Archive: Revision 1.2.1.1 2015/01/15 11:30:26CET Ciuca, Sergiu (uidl6047) 
+# Archive: Ao Configuration added
+# Archive: Revision 1.2 2014/10/28 16:47:55CET Ciuca, Sergiu (uidl6047) 
+# Archive: VAG MR 65703 : FG CUS: †CMake roll-out for MQB_16S1 
+# Archive: VAG MR 65695 : FG CUS: †CMake roll-out for FPK_15S1
+# Archive: Revision 1.1 2014/10/21 12:16:31CEST Ciuca, Sergiu (uidl6047) 
+# Archive: Initial revision
+# Archive: Member added to project /id/vag_MQB/sw/pkg/lmp/~vag_MQB.sw.pkg.lmp_V850E2M_MQBB_VarC/adapt/project.pj
+# End of History
+############################################################################
+
+
+#set(this_subsystem     hmi)                                # package belongs to this_subsystem, only for filtering in msvc.
+set(this_package        TestTools/core)                     # package prefix
+set(this_package_file   ${CMAKE_CURRENT_LIST_FILE})         # package cmk file
+set(this_package_dir    ${CMAKE_CURRENT_LIST_DIR}/..)       # package root directory
+# this_target_dir       (set in CMakeLists.txt)             # (sub-)project root directory
+# this_target_shortname (set in common.cmake)               # last part of current directory (e.g. 'legacy')
+# this_root_dir         (set in CMakeLists.txt)             # masterproject root directory
+
+
+################################################################################
+# package pre definitions
+################################################################################
+#
+include(${this_root_dir}/tool/cmake/adapt/package_pre.cmake)
+#
+################################################################################
+
+################################################################################
+# package msvc filter processing
+################################################################################
+#
+
+#set the filters of this package, set with macro "set_filter_if_not_set"
+#set_filter_if_not_set(${this_package}   "code/.../${this_subsystem}/${this_package}")
+#set_filter_if_not_set(${this_package}   code/.../${this_package})
+set(this_package_filter      ${${this_package}}        )
+
+#
+################################################################################
+
+################################################################################
+# List here all used files of the package:
+################################################################################
+#
+
+# if you need <if> condition to apply for specific variants
+# define your files like this
+#if((System STREQUAL MQBA0C) OR (System STREQUAL MQBA0M))
+#   staticFileList(${this_package_filter} [file list])
+#   generatedFileList(${this_package_filter} [file list])
+#   excludeFromBuild([file list])
+#endif((System STREQUAL MQBA0C) OR (System STREQUAL MQBA0M))
+
+# only static files
+if(System STREQUAL HUD2GRGC)
+staticFileList(
+   ${this_package_file} 
+   ${this_package_dir}/core/SHMEM_Access.c
+   ${this_package_dir}/core/SHMEM_Access.h
+   ${this_package_dir}/core/SHMEM_Layout.h
+   ${this_package_dir}/core/SHMEM_TraceItems.h
+   ${this_package_dir}/core/TT1c1.h 
+   ${this_package_dir}/core/TT__ExecWrapper.cpp
+   ${this_package_dir}/core/TT__ExecWrapper.h
+   ${this_package_dir}/core/TT__ObjPatch.cpp
+   ${this_package_dir}/core/TT__ObjPatch.h
+   ${this_package_dir}/core/TT__Sequencer.c 
+   ${this_package_dir}/core/TT__Sequencer.h
+   ${this_package_dir}/core/TT__TimingTest.c
+   ${this_package_dir}/core/TT__TimingTest.h
+   ${this_package_dir}/core/TT__Trace.c
+   ${this_package_dir}/core/TT__Trace.h
+   ${this_package_dir}/core/TT_Interface.c
+   ${this_package_dir}/core/TT_Interface.h
+   ${this_package_dir}/core/TT_System.c
+   ${this_package_dir}/core/TT_System.h
+   ${this_package_dir}/core/TT_HMI_System.cpp   
+#  ${this_package_dir}/core/TT__TC_Container.cpp
+#  ${this_package_dir}/core/TT__TC_WidgetService.cpp   
+   ${this_package_dir}/core/TT_HMI.cmk
+   ${this_package_dir}/core/TT_HMI.sdh
+   ${this_package_dir}/core/TT_HMI.xdh    
+)  
+   
+#cds_set_compile_strategy(SRAM_1_SYSTEM SIZE ${${this_target}_${this_package}_FILES})
+endif(System STREQUAL HUD2GRGC)
+
+# only generated files
+generatedFileList(
+    ${this_root_dir}/adapt/gen/proseco/cpcont_HMITestToolscbgen.h
+    ${this_root_dir}/adapt/gen/proseco/cpcont_HMITestToolsgen.cpp
+    ${this_root_dir}/adapt/gen/proseco/cpcont_HMITestToolsgen.h
+)
+
+#
+################################################################################
+# Add here files which are excluded from build:
+################################################################################
+#
+
+# excluded in all build configurations
+excludeFromBuild(
+)
+
+# excluded in simulation build only
+excludeFromBuildSimulation(
+)
+
+# excluded in target build only
+excludeFromBuildTarget(
+  ${this_package_file}
+  ${this_package_dir}/core/SHMEM_Access.c
+  ${this_package_dir}/core/SHMEM_Access.h
+  ${this_package_dir}/core/SHMEM_Layout.h
+  ${this_package_dir}/core/SHMEM_TraceItems.h
+  ${this_package_dir}/core/TT.sdh
+  ${this_package_dir}/core/TT1c1.h
+  ${this_package_dir}/core/TT__ExecWrapper.cpp
+  ${this_package_dir}/core/TT__ExecWrapper.h
+  ${this_package_dir}/core/TT__ObjPatch.cpp
+  ${this_package_dir}/core/TT__ObjPatch.h
+  ${this_package_dir}/core/TT__Sequencer.c 
+  ${this_package_dir}/core/TT__Sequencer.h
+  ${this_package_dir}/core/TT__TimingTest.c
+  ${this_package_dir}/core/TT__TimingTest.h
+  ${this_package_dir}/core/TT__Trace.c
+  ${this_package_dir}/core/TT__Trace.h
+  ${this_package_dir}/core/TT_Interface.c
+  ${this_package_dir}/core/TT_Interface.h
+  ${this_package_dir}/core/TT_System.c
+  ${this_package_dir}/core/TT_System.h
+  ${this_package_dir}/core/TT__TC_Container.cpp
+  ${this_package_dir}/core/TT__TC_WidgetService.cpp
+)
+
+#
+################################################################################
+
+################################################################################
+# package post definitions
+################################################################################
+#
+include(${this_root_dir}/tool/cmake/adapt/package_post.cmake)
+#
+################################################################################
+
